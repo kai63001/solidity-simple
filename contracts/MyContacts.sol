@@ -1,25 +1,28 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >= 0.7.0 < 0.9.0;
+pragma solidity >=0.7.0 <0.9.0;
 
 contract MyContract {
-    uint private money;
-    mapping(address => uint) public balance;
+    uint256 private money;
+    mapping(address => uint256) public balance;
 
-    constructor(uint _money) {
+    constructor(uint256 _money) {
         money = _money;
         balance[msg.sender] = money;
     }
 
-    function changeMoney(uint _money) public {
+    function changeMoney(uint256 _money) public {
         money = _money;
     }
 
-    function allOfMoney() public view returns (uint){
+    function allOfMoney() public view returns (uint256) {
         return money;
     }
 
-    function transferMoney(uint _money) public {
-
+    function transferMoney(address to, uint256 _value) public returns (bool) {
+        require(balance[msg.sender] >= _value);
+        balance[to] += _value;
+        balance[msg.sender] -= _value;
+        return true;
     }
 }
