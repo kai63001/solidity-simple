@@ -7,7 +7,7 @@ describe("MyContact", () => {
     const myContact = await MyContact.deploy(20000000);
 
     await myContact.deployed();
-    expect(await myContact.getName()).to.equal(20000000);
+    expect(await myContact.allOfMoney()).to.equal(20000000);
   });
 
 });
