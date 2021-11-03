@@ -4,6 +4,7 @@ pragma solidity >= 0.7.0 < 0.9.0;
 
 contract MyContract {
     uint private money;
+
     constructor(uint _money) {
         money = _money;
     }
