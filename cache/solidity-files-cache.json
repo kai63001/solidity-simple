@@ -1,0 +1,39 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\WORK\\solidity-project\\contracts\\MyContacts.sol": {
+      "lastModificationDate": 1635962540034,
+      "contentHash": "4621c7c1472ff7fbb0579d54ce6afdf6",
+      "sourceName": "contracts/MyContacts.sol",
+      "solcConfig": {
+        "version": "0.8.5",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.0 <0.9.0"
+      ],
+      "artifacts": [
+        "MyContract"
+      ]
+    }
+  }
+}
