@@ -11,6 +11,7 @@ contract TestNft is ERC721URIStorage {
     uint256 public deposits = 0;
     uint256 amount = 0;
     address payable public Owner;
+    uint256 fee = 8;
 
     constructor() ERC721("Romeo", "RO") {
         Owner = payable(msg.sender);
@@ -34,9 +35,13 @@ contract TestNft is ERC721URIStorage {
     }
 
     function deposit() public payable returns (uint256) {
-        deposits = 1;
-        amount += msg.value;
+        require(msg.value == 1 * (10**fee), "MONEY U KONW");
         return msg.value;
+    }
+
+    function changeFee(uint256 _fee) public returns (uint256) {
+        fee = _fee;
+        return fee;
     }
 
     function getBalance() public view returns (uint256) {
