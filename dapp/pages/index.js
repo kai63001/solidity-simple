@@ -1,5 +1,5 @@
 import { injected } from "../components/wallet/connections";
-import { init, totalSupply,mint } from "../components/Web3Client";
+import { init, totalSupply,mint,changeFee } from "../components/Web3Client";
 import { useWeb3React } from "@web3-react/core";
 import { useEffect } from "react";
 
@@ -32,6 +32,10 @@ export default function Home({ web3 }) {
     mint();
   };
 
+  const _changeFee = () => {
+    changeFee()
+  }
+
   useEffect(() => {
     // console.log(provider)
     // connect();
@@ -55,6 +59,13 @@ export default function Home({ web3 }) {
           mint
         </button>
         <br />
+        <br />
+        <button className="px-4 py-2 bg-red-500" onClick={_changeFee}>
+        _changeFee
+        </button>
+        <br />
+        <br />
+
         <button className="px-4 py-2 bg-red-500" onClick={disconnect}>
           LOGOUT
         </button>
