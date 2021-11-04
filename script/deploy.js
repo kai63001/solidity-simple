@@ -1,6 +1,6 @@
 async function main() {
-  const MyContact = await ethers.getContractFactory("MyContract");
-  const myContact = await MyContact.deploy("My Contract");
+  const MyContact = await ethers.getContractFactory("TestNft");
+  const myContact = await MyContact.deploy();
 
   console.log("My Contract deployed to : ", myContact.address);
   
