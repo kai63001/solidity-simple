@@ -1,5 +1,5 @@
 import { injected } from "../components/wallet/connections";
-import { init, name } from "../components/Web3Client";
+import { init, totalSupply,mint } from "../components/Web3Client";
 import { useWeb3React } from "@web3-react/core";
 import { useEffect } from "react";
 
@@ -24,11 +24,12 @@ export default function Home({ web3 }) {
 
   const balance = async () => {
     // getBalance(account.toString()).then((balance) => {console.log(balance);}).catch((err) => {console.log(err)});
-    name()
+    totalSupply()
   };
 
   const minter = async () => {
     // mint(account.toString()).then((balance) => {console.log(balance);}).catch((err) => {console.log(err)});
+    mint();
   };
 
   useEffect(() => {
