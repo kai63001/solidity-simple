@@ -1,9 +1,9 @@
 import { injected } from "../components/wallet/connections";
-import { init, getBalance } from "../components/Web3Client";
+import { init, name } from "../components/Web3Client";
 import { useWeb3React } from "@web3-react/core";
 import { useEffect } from "react";
 
-export default function Home({web3}) {
+export default function Home({ web3 }) {
   const { active, account, library, connector, activate, deactivate } =
     useWeb3React();
 
@@ -23,12 +23,17 @@ export default function Home({web3}) {
   }
 
   const balance = async () => {
-    getBalance(account.toString()).then((balance) => {console.log(balance);}).catch((err) => {console.log(err)});
+    // getBalance(account.toString()).then((balance) => {console.log(balance);}).catch((err) => {console.log(err)});
+    name()
+  };
+
+  const minter = async () => {
+    // mint(account.toString()).then((balance) => {console.log(balance);}).catch((err) => {console.log(err)});
   };
 
   useEffect(() => {
     // console.log(provider)
-    connect();
+    // connect();
     init();
     // console.log("effect")
   }, [account]);
@@ -45,6 +50,9 @@ export default function Home({web3}) {
         <br />
         <div onClick={balance}>blance</div>
         <br />
+        <button className="px-4 py-2 bg-red-500" onClick={minter}>
+          mint
+        </button>
         <br />
         <button className="px-4 py-2 bg-red-500" onClick={disconnect}>
           LOGOUT
