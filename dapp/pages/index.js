@@ -10,7 +10,7 @@ import { useWeb3React } from "@web3-react/core";
 import { useEffect, useState } from "react";
 
 export default function Home({ web3 }) {
-  // let [myAddress, setMyAddress] = useState('');
+  let [myAddress, setMyAddress] = useState("");
   const balance = async () => {
     // getBalance(account.toString()).then((balance) => {console.log(balance);}).catch((err) => {console.log(err)});
     totalSupply();
@@ -29,7 +29,7 @@ export default function Home({ web3 }) {
     // console.log(provider)
     // connect();
     init();
-    // setMyAddress(await address())
+    setMyAddress(await totalSupply());
 
     // console.log("effect")
   }, []);
@@ -38,7 +38,7 @@ export default function Home({ web3 }) {
       <div className="m-auto text-center">
         CONNECT
         <br />
-        <div>{"asd"}</div>
+        <div>{myAddress}</div>
         <br />
         <div onClick={balance}>blance</div>
         <br />
