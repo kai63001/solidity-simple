@@ -6,12 +6,12 @@ const conTractAddress = "0xA62c61858c10fD54C385f6FbcE867aE803B22FE0";
 
 let myAddress = "";
 let contract;
+const provider = new ethers.providers.Web3Provider(web3.currentProvider);
 export const init = async () => {
   //   const provider = new ethers.providers.JsonRpcProvider(
   //     "https://eth-ropsten.alchemyapi.io/v2/ItzlUeRdcRPFxf0LpW4ggGAu6R0AnjJs",
   //     "ropsten"
   //   );
-  const provider = new ethers.providers.Web3Provider(web3.currentProvider);
   console.log(provider);
   await provider.send("eth_requestAccounts", []);
   const signer = provider.getSigner();
@@ -20,10 +20,11 @@ export const init = async () => {
   //   console.log(signer.getAddress());
   // const balance = await signer.getBalance();
   // console.log(parseFloat(balance.toString()) / 10 ** 18);
-
+  // const signatures = await signer.signMessage("hel");
+  // console.log(signatures)
   //   provider.mintNFT("rrrr")
-  //   const wallet = new ethers.Wallet(signatures, provider);
-  //   console.log(wallet);
+  // const wallet = new ethers.Wallet(signatures, provider);
+    // console.log(wallet);
   contract = new ethers.Contract(conTractAddress, data.abi, signer);
   console.log(contract);
   const balance = await contract.balanceOf(await signer.getAddress());
