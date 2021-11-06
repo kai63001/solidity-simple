@@ -5,7 +5,7 @@ pragma solidity >=0.7.0 <0.9.0;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract TestNft is ERC721URIStorage {
+contract RomeoHero is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     uint256 public deposits = 0;
@@ -13,7 +13,7 @@ contract TestNft is ERC721URIStorage {
     address payable public Owner;
     uint256 fee = 8;
 
-    constructor() ERC721("Romeo", "RO") {
+    constructor() ERC721("RomeoHero", "RHO") {
         Owner = payable(msg.sender);
     }
 
